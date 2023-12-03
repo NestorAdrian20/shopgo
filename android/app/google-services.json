@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545794475964",
+    "project_id": "shopgo-77e83",
+    "storage_bucket": "shopgo-77e83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545794475964:android:ff699c2f0a64f7baea0db9",
+        "android_client_info": {
+          "package_name": "com.example.shopgo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzjh_kVCMuTOgA9LYlyAeA9GuyUCodw8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

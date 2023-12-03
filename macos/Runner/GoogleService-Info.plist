@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>545794475964-r1b96f7qb38u3ua0c14ppej8ovga4c2d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.545794475964-r1b96f7qb38u3ua0c14ppej8ovga4c2d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAQ4zyfK9DkJNSalelLnKoOSDLtF0iNpdc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>545794475964</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.shopGo.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>shopgo-77e83</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shopgo-77e83.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:545794475964:ios:ccd044e98c8b7904ea0db9</string>
+</dict>
+</plist>

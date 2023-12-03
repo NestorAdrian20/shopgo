@@ -1,0 +1,46 @@
+{
+    "service": [
+        {
+        "categories": [
+            {
+                "name": "",
+                "description": "",
+                "state": ""
+            }
+        ]
+        },
+        {
+            "services": [
+                {
+                    "idCategory": "",
+                    "idCustomer": "",
+                    "idBiker": "",
+                    "address": "",
+                    "price": "",
+                    "dateRequest": "",
+                    "dateCompleted": "",
+                    "state": ""
+                }
+
+            ]
+        },
+        {
+            "favorites": [
+                {   "idCustomer": "",
+                    "idBiker": "",
+                    "idCategory":""            
+                }
+            ]
+        },
+        {
+            "reviews": [
+                {
+                    "idCustomer": "",
+                    "idBiker": "",
+                    "date": "",
+                    "comment": ""
+                }
+            ]
+        }
+    ]
+}
