@@ -8,10 +8,20 @@ class PrivacyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Privacy Page'),
-      ),
-      body: Markdown(data: '''
+        appBar: AppBar(title: Text('Licencias')),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext contex) {
+                  return AlertDialog(
+                    title: Text('Licencias'),
+                    content: Container(
+                      width: double.maxFinite,
+                      child: Markdown(
+                        data:
+                            '''
 Privacy Policy  
 ==============
 
@@ -380,7 +390,30 @@ If you have any questions about this Privacy Policy, You can contact us:
 
   * By phone number: 9191634544
 
-'''),
-    );
+
+
+''',
+                        styleSheet: MarkdownStyleSheet(
+                          textAlign: WrapAlignment.start,
+                          h1: TextStyle(fontSize: 24),
+                          p: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Cerrar'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: Text('Mostrar licencias'),
+          ),
+        ));
   }
 }

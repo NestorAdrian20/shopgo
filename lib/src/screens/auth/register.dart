@@ -81,6 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         TextFormField(
                           controller: emailController,
+                          maxLength: 20, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -119,6 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         TextFormField(
                           obscureText: _isObscure,
                           controller: passwordController,
+                          maxLength: 10, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                                 icon: Icon(_isObscure
@@ -163,6 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         TextFormField(
                           obscureText: _isObscure2,
                           controller: confirmpassController,
+                          maxLength: 10, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                                 icon: Icon(_isObscure2

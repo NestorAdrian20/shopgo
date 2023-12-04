@@ -8,7 +8,7 @@ import 'package:auto_route/auto_route.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -23,6 +23,27 @@ class _LoginPageState extends State<LoginPage> {
 
   // ignore: unused_field
   final _auth = FirebaseAuth.instance;
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return "El correo electrónico no puede estar vacío.";
+    }
+    if (!RegExp(r'^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]+$').hasMatch(value)) {
+      return "Por favor, ingresa un correo electrónico válido.";
+    }
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "La contraseña no puede estar vacía.";
+    }
+    if (value.length < 6) {
+      return "La contraseña debe tener al menos 6 caracteres.";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 30,
                         ),
                         const Text(
-                          "Login",
+                          "Inicio de sesión",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -61,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Email',
+                            hintText: 'Correo',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
@@ -74,19 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          validator: (value) {
-                            // ignore: prefer_is_empty
-                            if (value!.length == 0) {
-                              return "Email cannot be empty";
-                            }
-                            if (!RegExp(
-                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                .hasMatch(value)) {
-                              return ("Please enter a valid email");
-                            } else {
-                              return null;
-                            }
-                          },
+                          validator: validateEmail,
                           onSaved: (value) {
                             emailController.text = value!;
                           },
@@ -110,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Password',
+                            hintText: 'Contraseña',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
@@ -123,17 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          validator: (value) {
-                            RegExp regex = RegExp(r'^.{6,}$');
-                            if (value!.isEmpty) {
-                              return "Password cannot be empty";
-                            }
-                            if (!regex.hasMatch(value)) {
-                              return ("please enter valid password min. 6 character");
-                            } else {
-                              return null;
-                            }
-                          },
+                          validator: validatePassword,
                           onSaved: (value) {
                             passwordController.text = value!;
                           },
@@ -153,11 +152,13 @@ class _LoginPageState extends State<LoginPage> {
                               visible = true;
                             });
                             signIn(
-                                emailController.text, passwordController.text);
+                              emailController.text,
+                              passwordController.text,
+                            );
                           },
                           color: Colors.white,
                           child: const Text(
-                            "Login",
+                            "Inicio de sesión",
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -204,7 +205,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       color: Colors.blue[900],
                       child: const Text(
-                        "Recuperar Contraseña",
+                        "Recuperar contraseña",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -235,10 +236,10 @@ class _LoginPageState extends State<LoginPage> {
                                       AutoRouter.of(context)
                                           .push(const PrivacyRoute());
                                     },
-                                    child: const Text('Terms Privacy'))
+                                    child: const Text('Términos y privacidad'))
                               ]);
                         },
-                        child: const Text('Terms Privacy')),
+                        child: const Text('Términos y privacidad')),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -253,9 +254,9 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             AutoRouter.of(context).push(const RegisterRoute());
                           },
-                          color: Colors.blue[900],
+                          color: const Color.fromARGB(255, 75, 161, 13),
                           child: const Text(
-                            "Registrarse",
+                            "Registrate",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -266,7 +267,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 15,
                         ),
                         Text(
-                          "Shop go",
+                          "ShopGo",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
@@ -290,8 +291,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void route() {
     User? user = FirebaseAuth.instance.currentUser;
-    // ignore: unused_local_variable
-    var kk = FirebaseFirestore.instance
+    FirebaseFirestore.instance
         .collection('users')
         .doc(user!.uid)
         .get()
@@ -311,7 +311,6 @@ class _LoginPageState extends State<LoginPage> {
   void signIn(String email, String password) async {
     if (_formkey.currentState!.validate()) {
       try {
-        // ignore: unused_local_variable
         UserCredential userCredential =
             await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email,
@@ -320,9 +319,38 @@ class _LoginPageState extends State<LoginPage> {
         route();
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          print('No user found for that email.');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'No se encontró un usuario con ese correo electrónico.',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.red, // Color de fondo del SnackBar
+              duration: Duration(seconds: 3), // Duración del SnackBar
+            ),
+          );
         } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Contraseña incorrecta para ese usuario.',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.red, // Color de fondo del SnackBar
+              duration: Duration(seconds: 3), // Duración del SnackBar
+            ),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Error de autenticación',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.red, // Color de fondo del SnackBar
+              duration: Duration(seconds: 3), // Duración del SnackBar
+            ),
+          );
         }
       }
     }
