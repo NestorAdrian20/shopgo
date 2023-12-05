@@ -4,7 +4,6 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:shopgo/config/routes/app_route.gr.dart';
 import 'package:shopgo/src/services/firebase/auth/singup_service.dart';
 import 'package:auto_route/auto_route.dart';
-import 'TermsAndConditionsPage.dart';
 
 @RoutePage()
 class RegisterScreen extends StatefulWidget {
