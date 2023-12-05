@@ -2,6 +2,7 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shopgo/src/screens/users/constants.dart';
 import 'package:shopgo/src/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -230,7 +231,8 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('AlertDialog Title'),
+          title: const Text(
+              'Ingrese los datos necesarios para hecer su pedido...'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -263,9 +265,14 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
                             TextFormField(
                               controller: descripctionController,
                               decoration: const InputDecoration(
-                                icon: Icon(Icons.person),
+                                icon: Icon(
+                                  Icons.person,
+                                  color: Colors.white,
+                                ),
                                 hintText: 'Escriba una brebe descripción',
                                 labelText: 'Descripción',
+                                labelStyle: TextStyle(color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onSaved: (String? value) {
                                 // This optional block of code can be used to run
@@ -283,9 +290,14 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
                             TextFormField(
                               controller: direccionReciboController,
                               decoration: const InputDecoration(
-                                icon: Icon(Icons.person),
+                                icon: Icon(
+                                  Icons.location_on,
+                                  color: Colors.white,
+                                ),
                                 hintText: 'Ingrese la dirección',
                                 labelText: 'Dirección de recibo',
+                                labelStyle: TextStyle(color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onSaved: (String? value) {
                                 // This optional block of code can be used to run
@@ -303,9 +315,14 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
                             TextFormField(
                               controller: direccionEntregaController,
                               decoration: const InputDecoration(
-                                icon: Icon(Icons.person),
+                                icon: Icon(
+                                  Icons.location_city,
+                                  color: Colors.white,
+                                ),
                                 hintText: 'Ingrese la dirección de entrega',
                                 labelText: 'Dirección de entrega',
+                                labelStyle: TextStyle(color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                               ),
                               onSaved: (String? value) {
                                 // This optional block of code can be used to run
@@ -331,7 +348,7 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Approve'),
+              child: const Text('Aprovar'),
               onPressed: () {
                 String idCustomer =
                     (FirebaseAuth.instance.currentUser?.uid).toString();
@@ -349,7 +366,7 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
               },
             ),
             TextButton(
-              child: const Text('Not Approve'),
+              child: const Text('Cancelar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

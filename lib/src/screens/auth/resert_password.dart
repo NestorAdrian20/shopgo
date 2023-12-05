@@ -81,7 +81,7 @@ class _ResetPageState extends State<ResetPage> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Email',
+                            hintText: 'Ingrese su correo',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
@@ -168,7 +168,7 @@ class _ResetPageState extends State<ResetPage> {
                           },
                           color: Colors.white,
                           child: const Text(
-                            "Login",
+                            "Enviar",
                             style: TextStyle(
                               fontSize: 20,
                             ),
