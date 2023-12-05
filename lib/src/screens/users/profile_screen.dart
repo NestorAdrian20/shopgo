@@ -52,11 +52,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: "assets/icons/logOut.svg",
               press: () {
                 logout(context);
-                // Navigator.pushNamedAndRemoveUntil(
-                //   context,
-                //   '/home', // Ruta de la pantalla de inicio (HomeScreen)
-                //   (route) => false,
-                // ); // Elimina todas las rutas anteriores
               },
             ),
           ],

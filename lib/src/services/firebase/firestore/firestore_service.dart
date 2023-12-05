@@ -49,11 +49,6 @@ Future<void> addServicios(
 }
 
 //Actualizar datos de firebase
-Future<void> updateServicio(String uid, String nuevoNombre) async {
-  await db.collection('servicio').doc(uid).set({"nombre": nuevoNombre});
-}
-
-//Actualizar datos de firebase
 Future<void> updateServicios(String uid, String idBiker) async {
   //String dateCompleted = (DateTime.now()).toString();
   String state = "En proceso";
@@ -70,6 +65,20 @@ Future<void> updateServicios(String uid, String idBiker) async {
   });
 }
 
+//Actualizar datos de firebase
+Future<void> updateServiciosLocationUser(
+    String? uid, double? lat, double? long) async {
+  await db
+      .collection('services')
+      .doc('szVtg3W6iBuu7Vx0HxVy')
+      .collection('services')
+      .doc(uid)
+      .update({
+    "lat": lat,
+    "long": long,
+  });
+}
+
 Future<List> getServices() async {
   List service = [];
   CollectionReference collectionReferencePeople = db
@@ -78,6 +87,35 @@ Future<List> getServices() async {
       .collection('services');
 
   QuerySnapshot querySnapshot = await collectionReferencePeople.get();
+
+  for (var doc in querySnapshot.docs) {
+    final data = doc.data() as Map<String, dynamic>;
+    final services = {
+      "uid": doc.id,
+      "category": data['category'],
+      "type": data['type'],
+      "descripction": data['descripction'],
+      "addressReceive": data['addressReceive'],
+      "addressDeliver": data['addressDeliver'],
+      "dateRequest": data['dateRequest'],
+      "state": data['state'],
+    };
+    service.add(services);
+  }
+
+  return service;
+}
+
+Future<List> getServicesUser(String idCustomer) async {
+  List service = [];
+  CollectionReference collectionReferencePeople = db
+      .collection('services')
+      .doc('szVtg3W6iBuu7Vx0HxVy')
+      .collection('services');
+  final stateQuery =
+      collectionReferencePeople.where("idCustomer", isEqualTo: idCustomer);
+
+  QuerySnapshot querySnapshot = await stateQuery.get();
 
   for (var doc in querySnapshot.docs) {
     final data = doc.data() as Map<String, dynamic>;
@@ -119,12 +157,15 @@ Future<List> getCategories() async {
   return categories;
 }
 
-void checkUser() //async
+String checkUser() //async
 {
-  FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    if (user != null) {
-      // ignore: avoid_print
-      print(user.uid);
-    }
+  String idBiker = (FirebaseAuth.instance.currentUser?.uid).toString();
+
+  return idBiker;
+}
+
+void locationUsersPedidos(String userId, double latitude, double longitude) {
+  db.collection('users').doc(userId).update({
+    'ubicacion': GeoPoint(latitude, longitude),
   });
 }

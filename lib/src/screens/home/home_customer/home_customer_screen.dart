@@ -4,6 +4,7 @@ import 'package:shopgo/src/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
+import '../../../../config/routes/app_route.gr.dart';
 import '../components/categoria_servicios_card.dart';
 import '../components/populars_services_card.dart';
 import '../widgets/app_bar_screen.dart';
@@ -45,7 +46,7 @@ class HomeCustomerScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              buildServicesList(),
+              buildServicesList(context),
               const SizedBox(
                 height: 20,
               ),
@@ -71,36 +72,44 @@ class HomeCustomerScreen extends StatelessWidget {
     );
   }
 
-  buildServicesList() {
-    return const SingleChildScrollView(
+  buildServicesList(BuildContext context) {
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
-          CategoriaServiciosCard(
+          TextButton(
+              onPressed: () {
+                AutoRouter.of(context).push(const PedidosCustomerRoute());
+              },
+              child: const Text('Ver estado del pedido')),
+          const SizedBox(
+            width: 30,
+          ),
+          const CategoriaServiciosCard(
             'Personalizar',
             'assets/icons/personalizar.png',
             greenColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          CategoriaServiciosCard(
+          const CategoriaServiciosCard(
             'Entregas\nServicios',
             'assets/icons/package.png',
             greenColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          CategoriaServiciosCard(
+          const CategoriaServiciosCard(
             'Pagos\nServicios',
             'assets/icons/payments.png',
             greenColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
         ],

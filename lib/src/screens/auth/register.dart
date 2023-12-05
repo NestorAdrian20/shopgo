@@ -150,12 +150,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           validator: (value) {
-                            RegExp regex = RegExp(r'^.{6,}$');
+                            if (value!.contains(RegExp('[1-8]'))) {
+                              return 'La contraseña no puede tener valores del 1 al 8.';
+                            }
+                            RegExp regex = RegExp(r'^.{8,}$');
                             if (value!.isEmpty) {
                               return "La contraseña no puede estar vacía.";
                             }
                             if (!regex.hasMatch(value)) {
-                              return ("Por favor ingrese una contraseña válida min. 6 caracteres.");
+                              return ("Por favor ingrese una contraseña válida min. 8 caracteres.");
                             } else {
                               return null;
                             }
@@ -195,6 +198,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           validator: (value) {
+                            if (value!.contains(RegExp('[1-8]'))) {
+                              return 'La contraseña no puede tener valores del 1 al 8.';
+                            }
+                            RegExp regex = RegExp(r'^.{8,}$');
+                            if (value!.isEmpty) {
+                              return "La contraseña no puede estar vacía.";
+                            }
+
                             if (confirmpassController.text !=
                                 passwordController.text) {
                               return "La contraseña no coincidió.";

@@ -8,46 +8,68 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i21;
-import 'package:flutter/material.dart' as _i22;
-import 'package:shopgo/src/location/location.dart' as _i4;
-import 'package:shopgo/src/map/map.dart' as _i8;
-import 'package:shopgo/src/map/maps.dart' as _i9;
-import 'package:shopgo/src/payments/stripe/payments.dart' as _i11;
-import 'package:shopgo/src/privacy_page.dart' as _i12;
-import 'package:shopgo/src/screens/404/screen_404_.dart' as _i16;
-import 'package:shopgo/src/screens/auth/login.dart' as _i7;
-import 'package:shopgo/src/screens/auth/register.dart' as _i14;
-import 'package:shopgo/src/screens/auth/resert_password.dart' as _i15;
+import 'package:auto_route/auto_route.dart' as _i28;
+import 'package:flutter/material.dart' as _i29;
+import 'package:shopgo/maps/components/rider_info.dart' as _i22;
+import 'package:shopgo/maps/order_traking_page%20copy.dart' as _i15;
+import 'package:shopgo/maps/order_traking_page.dart' as _i14;
+import 'package:shopgo/src/location/location.dart' as _i6;
+import 'package:shopgo/src/map/map.dart' as _i11;
+import 'package:shopgo/src/map/maps.dart' as _i12;
+import 'package:shopgo/src/payments/stripe/payments.dart' as _i16;
+import 'package:shopgo/src/privacy_page.dart' as _i18;
+import 'package:shopgo/src/screens/404/screen_404_.dart' as _i23;
+import 'package:shopgo/src/screens/auth/login.dart' as _i10;
+import 'package:shopgo/src/screens/auth/register.dart' as _i20;
+import 'package:shopgo/src/screens/auth/resert_password.dart' as _i21;
 import 'package:shopgo/src/screens/home/components/detail_populars_screen.dart'
-    as _i1;
-import 'package:shopgo/src/screens/home/components/form/form_screen.dart'
-    as _i20;
-import 'package:shopgo/src/screens/home/components/packages/form_entregar_paquetes.dart'
-    as _i2;
-import 'package:shopgo/src/screens/home/components/packages/form_recibir_paquetes.dart'
     as _i3;
-import 'package:shopgo/src/screens/home/components/search_bar.dart' as _i17;
-import 'package:shopgo/src/screens/home/components/service_detail_screen.dart'
-    as _i18;
-import 'package:shopgo/src/screens/home/home_biker/home_biker_screen.dart'
+import 'package:shopgo/src/screens/home/components/form/form_screen.dart'
+    as _i27;
+import 'package:shopgo/src/screens/home/components/packages/form_entregar_paquetes.dart'
+    as _i4;
+import 'package:shopgo/src/screens/home/components/packages/form_recibir_paquetes.dart'
     as _i5;
+import 'package:shopgo/src/screens/home/components/search_bar.dart' as _i24;
+import 'package:shopgo/src/screens/home/components/service_detail_screen.dart'
+    as _i25;
+import 'package:shopgo/src/screens/home/home_biker/home_biker_screen.dart'
+    as _i7;
+import 'package:shopgo/src/screens/home/home_biker/services_list.dart' as _i8;
+import 'package:shopgo/src/screens/home/home_biker/services_list_ep.dart'
+    as _i2;
+import 'package:shopgo/src/screens/home/home_customer/card_services.dart'
+    as _i1;
 import 'package:shopgo/src/screens/home/home_customer/home_customer_screen.dart'
-    as _i6;
-import 'package:shopgo/src/screens/onboarding/onboarding_screen_.dart' as _i10;
-import 'package:shopgo/src/screens/splash/splash_screen_.dart' as _i19;
-import 'package:shopgo/src/screens/users/profile_screen.dart' as _i13;
+    as _i9;
+import 'package:shopgo/src/screens/home/home_customer/pedidos_customer_screen.dart'
+    as _i17;
+import 'package:shopgo/src/screens/onboarding/onboarding_screen_.dart' as _i13;
+import 'package:shopgo/src/screens/splash/splash_screen_.dart' as _i26;
+import 'package:shopgo/src/screens/users/profile_screen.dart' as _i19;
 
-abstract class $AppRouter extends _i21.RootStackRouter {
+abstract class $AppRouter extends _i28.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i21.PageFactory> pagesMap = {
+  final Map<String, _i28.PageFactory> pagesMap = {
+    CardServicesCustomer.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i1.CardServicesCustomer(),
+      );
+    },
+    CardServicesEPBiker.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.CardServicesEPBiker(),
+      );
+    },
     DetailPolularsRoute.name: (routeData) {
       final args = routeData.argsAs<DetailPolularsRouteArgs>();
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.DetailPolularsScreen(
+        child: _i3.DetailPolularsScreen(
           args.category,
           args.description,
           args.imageUrl,
@@ -56,106 +78,136 @@ abstract class $AppRouter extends _i21.RootStackRouter {
       );
     },
     FormDeliverPackage.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.FormDeliverPackage(),
+        child: const _i4.FormDeliverPackage(),
       );
     },
     FormReceivePackage.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.FormReceivePackage(),
+        child: const _i5.FormReceivePackage(),
       );
     },
     GeolocatorWidget.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.GeolocatorWidget(),
+        child: const _i6.GeolocatorWidget(),
       );
     },
     HomeBikerRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.HomeBikerScreen(),
+        child: const _i7.HomeBikerScreen(),
+      );
+    },
+    HomeBikerRouteServices.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.HomeBikerScreenServices(),
       );
     },
     HomeCustomerRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.HomeCustomerScreen(),
+        child: const _i9.HomeCustomerScreen(),
       );
     },
     LoginRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.LoginPage(),
+        child: const _i10.LoginPage(),
       );
     },
     MapApp.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.MapApp(),
+        child: const _i11.MapApp(),
       );
     },
     MapsGeolocator.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.MapsGeolocator(),
+        child: const _i12.MapsGeolocator(),
       );
     },
     OnboardingRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.OnboardingScreen(),
+        child: const _i13.OnboardingScreen(),
+      );
+    },
+    OrderTrackingRoute.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i14.OrderTrackingPage(),
+      );
+    },
+    OrderTrackingRouteCopy.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i15.OrderTrackingPageCopy(),
       );
     },
     Payments.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i11.Payments(),
+        child: const _i16.Payments(),
+      );
+    },
+    PedidosCustomerRoute.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i17.PedidosCustomerScreen(),
       );
     },
     PrivacyRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i12.PrivacyPage(),
+        child: const _i18.PrivacyPage(),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i13.ProfileScreen(),
+        child: const _i19.ProfileScreen(),
       );
     },
     RegisterRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i14.RegisterScreen(),
+        child: const _i20.RegisterScreen(),
       );
     },
     ResetRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.ResetPage(),
+        child: const _i21.ResetPage(),
+      );
+    },
+    RiderInfo.name: (routeData) {
+      return _i28.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i22.RiderInfo(),
       );
     },
     Route404.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i16.Screen404(),
+        child: const _i23.Screen404(),
       );
     },
     SearchBar_.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i17.SearchBar_(),
+        child: const _i24.SearchBar_(),
       );
     },
     Shoes.name: (routeData) {
       final args = routeData.argsAs<ShoesArgs>();
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i18.Shoes(
+        child: _i25.Shoes(
           key: args.key,
           image: args.image,
           tag: args.tag,
@@ -163,29 +215,57 @@ abstract class $AppRouter extends _i21.RootStackRouter {
       );
     },
     SplashRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i19.SplashScreen(),
+        child: const _i26.SplashScreen(),
       );
     },
     TextFormFieldRoute.name: (routeData) {
-      return _i21.AutoRoutePage<dynamic>(
+      return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i20.TextFormFieldScreen(),
+        child: const _i27.TextFormFieldScreen(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.DetailPolularsScreen]
-class DetailPolularsRoute extends _i21.PageRouteInfo<DetailPolularsRouteArgs> {
+/// [_i1.CardServicesCustomer]
+class CardServicesCustomer extends _i28.PageRouteInfo<void> {
+  const CardServicesCustomer({List<_i28.PageRouteInfo>? children})
+      : super(
+          CardServicesCustomer.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CardServicesCustomer';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.CardServicesEPBiker]
+class CardServicesEPBiker extends _i28.PageRouteInfo<void> {
+  const CardServicesEPBiker({List<_i28.PageRouteInfo>? children})
+      : super(
+          CardServicesEPBiker.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CardServicesEPBiker';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.DetailPolularsScreen]
+class DetailPolularsRoute extends _i28.PageRouteInfo<DetailPolularsRouteArgs> {
   DetailPolularsRoute({
     required String category,
     required String description,
     required String imageUrl,
-    _i22.Key? key,
-    List<_i21.PageRouteInfo>? children,
+    _i29.Key? key,
+    List<_i28.PageRouteInfo>? children,
   }) : super(
           DetailPolularsRoute.name,
           args: DetailPolularsRouteArgs(
@@ -199,8 +279,8 @@ class DetailPolularsRoute extends _i21.PageRouteInfo<DetailPolularsRouteArgs> {
 
   static const String name = 'DetailPolularsRoute';
 
-  static const _i21.PageInfo<DetailPolularsRouteArgs> page =
-      _i21.PageInfo<DetailPolularsRouteArgs>(name);
+  static const _i28.PageInfo<DetailPolularsRouteArgs> page =
+      _i28.PageInfo<DetailPolularsRouteArgs>(name);
 }
 
 class DetailPolularsRouteArgs {
@@ -217,7 +297,7 @@ class DetailPolularsRouteArgs {
 
   final String imageUrl;
 
-  final _i22.Key? key;
+  final _i29.Key? key;
 
   @override
   String toString() {
@@ -226,9 +306,9 @@ class DetailPolularsRouteArgs {
 }
 
 /// generated route for
-/// [_i2.FormDeliverPackage]
-class FormDeliverPackage extends _i21.PageRouteInfo<void> {
-  const FormDeliverPackage({List<_i21.PageRouteInfo>? children})
+/// [_i4.FormDeliverPackage]
+class FormDeliverPackage extends _i28.PageRouteInfo<void> {
+  const FormDeliverPackage({List<_i28.PageRouteInfo>? children})
       : super(
           FormDeliverPackage.name,
           initialChildren: children,
@@ -236,13 +316,13 @@ class FormDeliverPackage extends _i21.PageRouteInfo<void> {
 
   static const String name = 'FormDeliverPackage';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.FormReceivePackage]
-class FormReceivePackage extends _i21.PageRouteInfo<void> {
-  const FormReceivePackage({List<_i21.PageRouteInfo>? children})
+/// [_i5.FormReceivePackage]
+class FormReceivePackage extends _i28.PageRouteInfo<void> {
+  const FormReceivePackage({List<_i28.PageRouteInfo>? children})
       : super(
           FormReceivePackage.name,
           initialChildren: children,
@@ -250,13 +330,13 @@ class FormReceivePackage extends _i21.PageRouteInfo<void> {
 
   static const String name = 'FormReceivePackage';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.GeolocatorWidget]
-class GeolocatorWidget extends _i21.PageRouteInfo<void> {
-  const GeolocatorWidget({List<_i21.PageRouteInfo>? children})
+/// [_i6.GeolocatorWidget]
+class GeolocatorWidget extends _i28.PageRouteInfo<void> {
+  const GeolocatorWidget({List<_i28.PageRouteInfo>? children})
       : super(
           GeolocatorWidget.name,
           initialChildren: children,
@@ -264,13 +344,13 @@ class GeolocatorWidget extends _i21.PageRouteInfo<void> {
 
   static const String name = 'GeolocatorWidget';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.HomeBikerScreen]
-class HomeBikerRoute extends _i21.PageRouteInfo<void> {
-  const HomeBikerRoute({List<_i21.PageRouteInfo>? children})
+/// [_i7.HomeBikerScreen]
+class HomeBikerRoute extends _i28.PageRouteInfo<void> {
+  const HomeBikerRoute({List<_i28.PageRouteInfo>? children})
       : super(
           HomeBikerRoute.name,
           initialChildren: children,
@@ -278,13 +358,27 @@ class HomeBikerRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'HomeBikerRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.HomeCustomerScreen]
-class HomeCustomerRoute extends _i21.PageRouteInfo<void> {
-  const HomeCustomerRoute({List<_i21.PageRouteInfo>? children})
+/// [_i8.HomeBikerScreenServices]
+class HomeBikerRouteServices extends _i28.PageRouteInfo<void> {
+  const HomeBikerRouteServices({List<_i28.PageRouteInfo>? children})
+      : super(
+          HomeBikerRouteServices.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeBikerRouteServices';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.HomeCustomerScreen]
+class HomeCustomerRoute extends _i28.PageRouteInfo<void> {
+  const HomeCustomerRoute({List<_i28.PageRouteInfo>? children})
       : super(
           HomeCustomerRoute.name,
           initialChildren: children,
@@ -292,13 +386,13 @@ class HomeCustomerRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'HomeCustomerRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i7.LoginPage]
-class LoginRoute extends _i21.PageRouteInfo<void> {
-  const LoginRoute({List<_i21.PageRouteInfo>? children})
+/// [_i10.LoginPage]
+class LoginRoute extends _i28.PageRouteInfo<void> {
+  const LoginRoute({List<_i28.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -306,13 +400,13 @@ class LoginRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.MapApp]
-class MapApp extends _i21.PageRouteInfo<void> {
-  const MapApp({List<_i21.PageRouteInfo>? children})
+/// [_i11.MapApp]
+class MapApp extends _i28.PageRouteInfo<void> {
+  const MapApp({List<_i28.PageRouteInfo>? children})
       : super(
           MapApp.name,
           initialChildren: children,
@@ -320,13 +414,13 @@ class MapApp extends _i21.PageRouteInfo<void> {
 
   static const String name = 'MapApp';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i9.MapsGeolocator]
-class MapsGeolocator extends _i21.PageRouteInfo<void> {
-  const MapsGeolocator({List<_i21.PageRouteInfo>? children})
+/// [_i12.MapsGeolocator]
+class MapsGeolocator extends _i28.PageRouteInfo<void> {
+  const MapsGeolocator({List<_i28.PageRouteInfo>? children})
       : super(
           MapsGeolocator.name,
           initialChildren: children,
@@ -334,13 +428,13 @@ class MapsGeolocator extends _i21.PageRouteInfo<void> {
 
   static const String name = 'MapsGeolocator';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i10.OnboardingScreen]
-class OnboardingRoute extends _i21.PageRouteInfo<void> {
-  const OnboardingRoute({List<_i21.PageRouteInfo>? children})
+/// [_i13.OnboardingScreen]
+class OnboardingRoute extends _i28.PageRouteInfo<void> {
+  const OnboardingRoute({List<_i28.PageRouteInfo>? children})
       : super(
           OnboardingRoute.name,
           initialChildren: children,
@@ -348,13 +442,41 @@ class OnboardingRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'OnboardingRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i11.Payments]
-class Payments extends _i21.PageRouteInfo<void> {
-  const Payments({List<_i21.PageRouteInfo>? children})
+/// [_i14.OrderTrackingPage]
+class OrderTrackingRoute extends _i28.PageRouteInfo<void> {
+  const OrderTrackingRoute({List<_i28.PageRouteInfo>? children})
+      : super(
+          OrderTrackingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderTrackingRoute';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i15.OrderTrackingPageCopy]
+class OrderTrackingRouteCopy extends _i28.PageRouteInfo<void> {
+  const OrderTrackingRouteCopy({List<_i28.PageRouteInfo>? children})
+      : super(
+          OrderTrackingRouteCopy.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderTrackingRouteCopy';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i16.Payments]
+class Payments extends _i28.PageRouteInfo<void> {
+  const Payments({List<_i28.PageRouteInfo>? children})
       : super(
           Payments.name,
           initialChildren: children,
@@ -362,13 +484,27 @@ class Payments extends _i21.PageRouteInfo<void> {
 
   static const String name = 'Payments';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i12.PrivacyPage]
-class PrivacyRoute extends _i21.PageRouteInfo<void> {
-  const PrivacyRoute({List<_i21.PageRouteInfo>? children})
+/// [_i17.PedidosCustomerScreen]
+class PedidosCustomerRoute extends _i28.PageRouteInfo<void> {
+  const PedidosCustomerRoute({List<_i28.PageRouteInfo>? children})
+      : super(
+          PedidosCustomerRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PedidosCustomerRoute';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i18.PrivacyPage]
+class PrivacyRoute extends _i28.PageRouteInfo<void> {
+  const PrivacyRoute({List<_i28.PageRouteInfo>? children})
       : super(
           PrivacyRoute.name,
           initialChildren: children,
@@ -376,13 +512,13 @@ class PrivacyRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'PrivacyRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i13.ProfileScreen]
-class ProfileRoute extends _i21.PageRouteInfo<void> {
-  const ProfileRoute({List<_i21.PageRouteInfo>? children})
+/// [_i19.ProfileScreen]
+class ProfileRoute extends _i28.PageRouteInfo<void> {
+  const ProfileRoute({List<_i28.PageRouteInfo>? children})
       : super(
           ProfileRoute.name,
           initialChildren: children,
@@ -390,13 +526,13 @@ class ProfileRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'ProfileRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i14.RegisterScreen]
-class RegisterRoute extends _i21.PageRouteInfo<void> {
-  const RegisterRoute({List<_i21.PageRouteInfo>? children})
+/// [_i20.RegisterScreen]
+class RegisterRoute extends _i28.PageRouteInfo<void> {
+  const RegisterRoute({List<_i28.PageRouteInfo>? children})
       : super(
           RegisterRoute.name,
           initialChildren: children,
@@ -404,13 +540,13 @@ class RegisterRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'RegisterRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i15.ResetPage]
-class ResetRoute extends _i21.PageRouteInfo<void> {
-  const ResetRoute({List<_i21.PageRouteInfo>? children})
+/// [_i21.ResetPage]
+class ResetRoute extends _i28.PageRouteInfo<void> {
+  const ResetRoute({List<_i28.PageRouteInfo>? children})
       : super(
           ResetRoute.name,
           initialChildren: children,
@@ -418,13 +554,27 @@ class ResetRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'ResetRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i16.Screen404]
-class Route404 extends _i21.PageRouteInfo<void> {
-  const Route404({List<_i21.PageRouteInfo>? children})
+/// [_i22.RiderInfo]
+class RiderInfo extends _i28.PageRouteInfo<void> {
+  const RiderInfo({List<_i28.PageRouteInfo>? children})
+      : super(
+          RiderInfo.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RiderInfo';
+
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i23.Screen404]
+class Route404 extends _i28.PageRouteInfo<void> {
+  const Route404({List<_i28.PageRouteInfo>? children})
       : super(
           Route404.name,
           initialChildren: children,
@@ -432,13 +582,13 @@ class Route404 extends _i21.PageRouteInfo<void> {
 
   static const String name = 'Route404';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i17.SearchBar_]
-class SearchBar_ extends _i21.PageRouteInfo<void> {
-  const SearchBar_({List<_i21.PageRouteInfo>? children})
+/// [_i24.SearchBar_]
+class SearchBar_ extends _i28.PageRouteInfo<void> {
+  const SearchBar_({List<_i28.PageRouteInfo>? children})
       : super(
           SearchBar_.name,
           initialChildren: children,
@@ -446,17 +596,17 @@ class SearchBar_ extends _i21.PageRouteInfo<void> {
 
   static const String name = 'SearchBar_';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i18.Shoes]
-class Shoes extends _i21.PageRouteInfo<ShoesArgs> {
+/// [_i25.Shoes]
+class Shoes extends _i28.PageRouteInfo<ShoesArgs> {
   Shoes({
-    _i22.Key? key,
+    _i29.Key? key,
     required String image,
     required String tag,
-    List<_i21.PageRouteInfo>? children,
+    List<_i28.PageRouteInfo>? children,
   }) : super(
           Shoes.name,
           args: ShoesArgs(
@@ -469,7 +619,7 @@ class Shoes extends _i21.PageRouteInfo<ShoesArgs> {
 
   static const String name = 'Shoes';
 
-  static const _i21.PageInfo<ShoesArgs> page = _i21.PageInfo<ShoesArgs>(name);
+  static const _i28.PageInfo<ShoesArgs> page = _i28.PageInfo<ShoesArgs>(name);
 }
 
 class ShoesArgs {
@@ -479,7 +629,7 @@ class ShoesArgs {
     required this.tag,
   });
 
-  final _i22.Key? key;
+  final _i29.Key? key;
 
   final String image;
 
@@ -492,9 +642,9 @@ class ShoesArgs {
 }
 
 /// generated route for
-/// [_i19.SplashScreen]
-class SplashRoute extends _i21.PageRouteInfo<void> {
-  const SplashRoute({List<_i21.PageRouteInfo>? children})
+/// [_i26.SplashScreen]
+class SplashRoute extends _i28.PageRouteInfo<void> {
+  const SplashRoute({List<_i28.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
           initialChildren: children,
@@ -502,13 +652,13 @@ class SplashRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i20.TextFormFieldScreen]
-class TextFormFieldRoute extends _i21.PageRouteInfo<void> {
-  const TextFormFieldRoute({List<_i21.PageRouteInfo>? children})
+/// [_i27.TextFormFieldScreen]
+class TextFormFieldRoute extends _i28.PageRouteInfo<void> {
+  const TextFormFieldRoute({List<_i28.PageRouteInfo>? children})
       : super(
           TextFormFieldRoute.name,
           initialChildren: children,
@@ -516,5 +666,5 @@ class TextFormFieldRoute extends _i21.PageRouteInfo<void> {
 
   static const String name = 'TextFormFieldRoute';
 
-  static const _i21.PageInfo<void> page = _i21.PageInfo<void>(name);
+  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
 }
