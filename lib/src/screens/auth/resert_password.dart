@@ -77,7 +77,7 @@ class _ResetPageState extends State<ResetPage> {
                         ),
                         TextFormField(
                           controller: emailController,
-                          maxLength: 20, //Establecer el limite de caracteres
+                          maxLength: 60, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,

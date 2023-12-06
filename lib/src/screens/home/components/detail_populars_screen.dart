@@ -242,8 +242,8 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
                       center: Alignment(-0.5, -0.6),
                       radius: 0.15,
                       colors: <Color>[
-                        const Color.fromARGB(255, 28, 75, 30),
-                        const Color.fromARGB(255, 28, 75, 30),
+                        Color.fromARGB(255, 255, 255, 255),
+                        Color.fromARGB(255, 255, 255, 255),
                       ],
                       stops: <double>[0.9, 1.0],
                     ),
@@ -332,7 +332,7 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Approve'),
+              child: const Text('Aprovar'),
               onPressed: () {
                 String idCustomer =
                     (FirebaseAuth.instance.currentUser?.uid).toString();
@@ -355,7 +355,7 @@ class _DetailPolularsScreenState extends State<DetailPolularsScreen> {
               },
             ),
             TextButton(
-              child: const Text('Not Approve'),
+              child: const Text('Cancelar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

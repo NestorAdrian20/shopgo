@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextFormField(
                               controller: emailController,
-                              maxLength: 20,
+                              maxLength: 60,
                               decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,

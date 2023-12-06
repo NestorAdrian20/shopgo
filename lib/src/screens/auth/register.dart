@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         TextFormField(
                           controller: emailController,
-                          maxLength: 20, //Establecer el limite de caracteres
+                          maxLength: 60, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -123,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         TextFormField(
                           obscureText: _isObscure,
                           controller: passwordController,
-                          maxLength: 10, //Establecer el limite de caracteres
+                          maxLength: 15, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                                 icon: Icon(_isObscure
@@ -150,10 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           validator: (value) {
-                            if (value!.contains(RegExp('[1-8]'))) {
-                              return 'La contraseña no puede tener valores del 1 al 8.';
-                            }
-                            RegExp regex = RegExp(r'^.{8,}$');
+                            RegExp regex = RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
                               return "La contraseña no puede estar vacía.";
                             }
@@ -171,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         TextFormField(
                           obscureText: _isObscure2,
                           controller: confirmpassController,
-                          maxLength: 10, //Establecer el limite de caracteres
+                          maxLength: 15, //Establecer el limite de caracteres
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                                 icon: Icon(_isObscure2
@@ -198,10 +195,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           validator: (value) {
-                            if (value!.contains(RegExp('[1-8]'))) {
-                              return 'La contraseña no puede tener valores del 1 al 8.';
-                            }
-                            RegExp regex = RegExp(r'^.{8,}$');
+                            RegExp regex = RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
                               return "La contraseña no puede estar vacía.";
                             }
@@ -261,51 +255,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         const SizedBox(
                           height: 20,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Plan : ",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            DropdownButton<String>(
-                              dropdownColor:
-                                  const Color.fromARGB(255, 28, 75, 30),
-                              isDense: true,
-                              isExpanded: false,
-                              iconEnabledColor: Colors.white,
-                              focusColor: Colors.white,
-                              items:
-                                  optionsPlan.map((String dropDownStringItem) {
-                                return DropdownMenuItem<String>(
-                                  value: dropDownStringItem,
-                                  child: Text(
-                                    dropDownStringItem,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (newValueSelected) {
-                                setState(() {
-                                  _currentItemSelectedPlan = newValueSelected!;
-                                  plan = newValueSelected;
-                                });
-                              },
-                              value: _currentItemSelectedPlan,
-                            ),
-                          ],
                         ),
                         const SizedBox(
                           height: 20,

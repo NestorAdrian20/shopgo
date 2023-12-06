@@ -26,7 +26,7 @@ class _CardServicesEPBikerState extends State<CardServicesEPBiker> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: null,
-        title: const Text('ShopGo - Biker - Services'),
+        title: const Text('ShopGo - Motorista - Servicios'),
       ),
       body: servicesList(),
     );

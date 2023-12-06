@@ -112,12 +112,12 @@ class OrderTrackingPageState extends State<OrderTrackingPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Track order",
+          ".",
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),
       ),
       body: currentLocation == null
-          ? const Center(child: Text("Loading"))
+          ? const Center(child: Text("Cargando"))
           : GoogleMap(
               mapToolbarEnabled: true,
               initialCameraPosition: CameraPosition(

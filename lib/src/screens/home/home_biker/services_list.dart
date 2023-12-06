@@ -26,7 +26,7 @@ class _HomeBikerScreenServicesState extends State<HomeBikerScreenServices> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: null,
-        title: const Text('ShopGo - Biker - Services'),
+        title: const Text('ShopGo - Motociclista - Servicios'),
       ),
       body: servicesList(),
     );

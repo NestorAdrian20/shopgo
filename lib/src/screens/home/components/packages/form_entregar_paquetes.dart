@@ -32,7 +32,7 @@ class _TextFormFieldScreenState extends State<FormDeliverPackage> {
               child: TextFormField(
                 controller: nameController,
                 decoration: const InputDecoration(
-                  labelText: "Name",
+                  labelText: "Nombre",
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue, width: 2.0),
@@ -46,7 +46,7 @@ class _TextFormFieldScreenState extends State<FormDeliverPackage> {
               child: TextFormField(
                 controller: descripcionController,
                 decoration: const InputDecoration(
-                  labelText: "Descripcion",
+                  labelText: "Descripción",
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue, width: 2.0),
